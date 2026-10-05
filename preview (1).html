@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Desa DWT Jaya - Portal Desa</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7f6;
+    color: #26332d;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+    box-shadow: 0 2px 10px rgba(0,0,0,.05);
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 22px;
+    color: #176b45;
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #176b45;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu {
+    display: flex;
+    gap: 5px;
+    list-style: none;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #37433d;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.menu a:hover,
+.menu a.active {
+    background: #176b45;
+    color: white;
+}
+
+.menu-button {
+    display: none;
+    border: none;
+    background: #176b45;
+    color: white;
+    padding: 9px 12px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+/* ================= PAGE ================= */
+
+.page {
+    display: none;
+    min-height: calc(100vh - 73px);
+    animation: fade .35s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(rgba(0,80,50,.72), rgba(0,50,35,.72)),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80")
+        center/cover;
+    color: white;
+}
+
+.hero-content {
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    padding: 50px 20px;
+}
+
+.hero h1 {
+    font-size: 54px;
+    max-width: 750px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    max-width: 650px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 22px;
+    border-radius: 8px;
+    background: #f4b942;
+    color: #17251e;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn.green {
+    background: #176b45;
+    color: white;
+}
+
+.btn.white {
+    background: white;
+    color: #176b45;
+}
+
+/* ================= CONTAINER ================= */
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+.page-title {
+    margin-bottom: 35px;
+}
+
+.page-title h1 {
+    font-size: 38px;
+    color: #176b45;
+    margin-bottom: 10px;
+}
+
+.page-title p {
+    color: #69756f;
+}
+
+/* ================= CARD ================= */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,.07);
+}
+
+.card-image {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: #176b45;
+}
+
+.card p {
+    color: #68736e;
+    line-height: 1.6;
+}
+
+/* ================= PROFILE ================= */
+
+.profile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.profile img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.profile-text {
+    line-height: 1.8;
+    color: #59645f;
+}
+
+/* ================= STATISTIK ================= */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 40px;
+}
+
+.stat {
+    background: white;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.06);
+}
+
+.stat strong {
+    display: block;
+    font-size: 35px;
+    color: #176b45;
+    margin-bottom: 8px;
+}
+
+.stat span {
+    color: #69756f;
+}
+
+/* ================= SERVICE ================= */
+
+.service {
+    padding: 25px;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.06);
+}
+
+.service-icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-box {
+    background: #176b45;
+    color: white;
+    border-radius: 18px;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.contact-box h2 {
+    margin-bottom: 15px;
+}
+
+.contact-box p {
+    line-height: 1.8;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: #123c2b;
+    color: white;
+    padding: 40px 20px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 30px;
+}
+
+footer h3 {
+    margin-bottom: 15px;
+}
+
+footer p,
+footer li {
+    color: #c8d6cf;
+    line-height: 1.8;
+}
+
+footer ul {
+    list-style: none;
+}
+
+.copyright {
+    max-width: 1200px;
+    margin: 30px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,.15);
+    color: #b9c8c1;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 850px) {
+
+    .menu-button {
+        display: block;
+    }
+
+    .menu {
+        position: absolute;
+        top: 73px;
+        left: 0;
+        right: 0;
+        background: white;
+        display: none;
+        flex-direction: column;
+        padding: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,.1);
+    }
+
+    .menu.show {
+        display: flex;
+    }
+
+    .menu a {
+        display: block;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-box {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 500px) {
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 500px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<nav class="navbar">
+
+    <div class="logo">
+        <div class="logo-icon">D</div>
+        <span>Desa DWT Jaya</span>
+    </div>
+
+    <button class="menu-button" onclick="toggleMenu()">
+        ☰
+    </button>
+
+    <ul class="menu" id="menu">
+
+        <li>
+            <a href="#beranda" data-page="beranda">
+                Beranda
+            </a>
+        </li>
+
+        <li>
+            <a href="#profil" data-page="profil">
+                Profil
+            </a>
+        </li>
+
+        <li>
+            <a href="#potensi" data-page="potensi">
+                Potensi
+            </a>
+        </li>
+
+        <li>
+            <a href="#berita" data-page="berita">
+                Berita
+            </a>
+        </li>
+
+        <li>
+            <a href="#agenda" data-page="agenda">
+                Agenda
+            </a>
+        </li>
+
+        <li>
+            <a href="#galeri" data-page="galeri">
+                Galeri
+            </a>
+        </li>
+
+        <li>
+            <a href="#pelayanan" data-page="pelayanan">
+                Pelayanan
+            </a>
+        </li>
+
+        <li>
+            <a href="#kontak" data-page="kontak">
+                Kontak
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+</header>
+
+
+<!-- ================================================= -->
+<!-- HALAMAN 1 : BERANDA -->
+<!-- ================================================= -->
+
+<section id="beranda" class="page">
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Selamat Datang di Desa DWT Jaya
+            </h1>
+
+            <p>
+                Portal informasi desa yang menghadirkan
+                informasi pemerintahan, potensi desa,
+                berita, kegiatan dan pelayanan masyarakat
+                dalam satu tempat.
+            </p>
+
+            <a href="#profil"
+               class="btn white"
+               data-page="profil">
+                Mengenal Desa
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="page-title">
+            <h1>Informasi Desa</h1>
+            <p>
+                Informasi terbaru seputar Desa DWT Jaya
+            </p>
+        </div>
+
+        <div class="stats">
+
+            <div class="stat">
+                <strong>2.540</strong>
+                <span>Penduduk</span>
+            </div>
+
+            <div class="stat">
+                <strong>8</strong>
+                <span>Dusun</span>
+            </div>
+
+            <div class="stat">
+                <strong>125</strong>
+                <span>UMKM</span>
+            </div>
+
+            <div class="stat">
+                <strong>5</strong>
+                <span>Destinasi</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- HALAMAN 2 : PROFIL -->
+<!-- ================================================= -->
+
+<section id="profil" class="page">
+
+    <div class="container">
+
+        <div class="page-title">
+            <h1>Profil Desa</h1>
+            <p>Mengenal lebih dekat Desa DWT Jaya.</p>
+        </div>
+
+        <div class="profile">
+
+            <img
+                src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=80"
+                alt="Desa">
+
+            <div>
+
+                <h2>Desa DWT Jaya</h2>
+
+                <p class="profile-text">
+                    Desa DWT Jaya merupakan desa yang memiliki
+                    potensi alam, ekonomi, budaya dan
+                    sumber daya masyarakat yang terus
+                    dikembangkan untuk mewujudkan desa
+                    yang maju, mandiri dan sejahtera.
+                </p>
+
+                <br>
+
+                <p class="profile-text">
+                    Melalui website ini masyarakat dapat
+                    memperoleh informasi desa secara mudah,
+                    cepat dan transparan.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- HALAMAN 3 : POTENSI -->
+<!-- ================================================= -->
+
+<section id="potensi" class="page">
+
+    <div class="container">
+
+        <div class="page-title">
+            <h1>Potensi Desa DWT Jaya</h1>
+            <p>
+                Berbagai potensi unggulan yang dimiliki Desa DWT Jaya.
+            </p>
+        </div>
+
+        <div class="grid">
+
+            <div class="card">
+
+                <img
+                    class="card-image"
+                    src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80">
+
+                <div class="card-content">
+
+                    <h3>Wisata Desa DWT Jaya</h3>
+
+                    <p>
+                        Destinasi wisata alam dan budaya
+                        yang menjadi daya tarik desa.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <img
+                    class="card-image"
+                    src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80">
+
+                <div class="card-content">
+
+                    <h3>UMKM</h3>
+
+                    <p>
+                        Produk dan usaha masyarakat
+                        yang menjadi penggerak ekonomi desa.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <img
+                    class="card-image"
+                    src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80">
+
+                <div class="card-content">
+
+                    <h3>Pertanian</h3>
+
+                    <p>
+                        Potensi pertanian dan perkebunan
+                        unggulan masyarakat desa.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- HALAMAN 4 : BERITA -->
+<!-- ================================================= -->
+
+<section id="berita" class="page">
+
+    <div class="container">
+
+        <div class="page-title">
+            <h1>Berita Desa</h1>
+            <p>
+                Berita dan informasi terbaru dari desa.
+            </p>
+        </div>
+
+        <div class="grid">
+
+            <div class="card">
+
+                <img
+                    class="card-image"
+                    src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=800&q=80">
+
+                <div class="card-content">
+
+                    <h3>Kegiatan Desa</h3>
+
+                    <p>
+                        Kegiatan terbaru pemerintah dan
+                        masyarakat Desa DWT Jaya.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <img
+                    class="card-image"
+                    src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80">
+
+                <div class="card-content">
+
+                    <h3>Gotong Royong</h3>
+
+                    <p>
+                        Masyarakat bersama-sama menjaga
+                        lingkungan desa.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <img
+                    class="card-image"
+                    src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80">
+
+                <div class="card-content">
+
+                    <h3>Pemberdayaan Masyarakat</h3>
+
+                    <p>
+                        Program pemberdayaan untuk
+                        meningkatkan ekonomi masyarakat.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- HALAMAN 5 : AGENDA -->
+<!-- ================================================= -->
+
+<section id="agenda" class="page">
+
+    <div class="container">
+
+        <div class="page-title">
+            <h1>Agenda Desa</h1>
+            <p>
+                Jadwal kegiatan dan acara Desa DWT Jaya.
+            </p>
+        </div>
+
+        <div class="grid">
+
+            <div class="service">
+                <div class="service-icon">📅</div>
+
+                <h3>Musyawarah Desa</h3>
+
+                <p>
+                    Pembahasan program pembangunan desa.
+                </p>
+
+                <br>
+
+                <strong>
+                    15 Oktober 2026
+                </strong>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">🌱</div>
+
+                <h3>Kerja Bakti</h3>
+
+                <p>
+                    Kegiatan kebersihan lingkungan desa.
+                </p>
+
+                <br>
+
+                <strong>
+                    20 Oktober 2026
+                </strong>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">🎉</div>
+
+                <h3>Festival Desa</h3>
+
+                <p>
+                    Festival seni dan budaya masyarakat.
+                </p>
+
+                <br>
+
+                <strong>
+                    25 Oktober 2026
+                </strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- HALAMAN 6 : GALERI -->
+<!-- ================================================= -->
+
+<section id="galeri" class="page">
+
+    <div class="container">
+
+        <div class="page-title">
+            <h1>Galeri Desa</h1>
+            <p>
+                Dokumentasi kegiatan dan kehidupan desa.
+            </p>
+        </div>
+
+        <div class="grid">
+
+            <div class="card">
+                <img class="card-image"
+                src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80">
+            </div>
+
+            <div class="card">
+                <img class="card-image"
+                src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=800&q=80">
+            </div>
+
+            <div class="card">
+                <img class="card-image"
+                src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80">
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- HALAMAN 7 : PELAYANAN -->
+<!-- ================================================= -->
+
+<section id="pelayanan" class="page">
+
+    <div class="container">
+
+        <div class="page-title">
+            <h1>Pelayanan Desa</h1>
+            <p>
+                Informasi pelayanan administrasi masyarakat.
+            </p>
+        </div>
+
+        <div class="grid">
+
+            <div class="service">
+
+                <div class="service-icon">📄</div>
+
+                <h3>Surat Keterangan</h3>
+
+                <p>
+                    Informasi pengajuan surat keterangan
+                    administrasi desa.
+                </p>
+
+                <br>
+
+                <button class="btn green">
+                    Ajukan
+                </button>
+
+            </div>
+
+            <div class="service">
+
+                <div class="service-icon">📋</div>
+
+                <h3>Administrasi Desa</h3>
+
+                <p>
+                    Informasi persyaratan dan prosedur
+                    administrasi desa.
+                </p>
+
+                <br>
+
+                <button class="btn green">
+                    Lihat Informasi
+                </button>
+
+            </div>
+
+            <div class="service">
+
+                <div class="service-icon">📢</div>
+
+                <h3>Pengaduan</h3>
+
+                <p>
+                    Sampaikan aspirasi atau pengaduan
+                    kepada pemerintah desa.
+                </p>
+
+                <br>
+
+                <button class="btn green">
+                    Buat Pengaduan
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- HALAMAN 8 : KONTAK -->
+<!-- ================================================= -->
+
+<section id="kontak" class="page">
+
+    <div class="container">
+
+        <div class="page-title">
+            <h1>Kontak Desa</h1>
+            <p>
+                Hubungi Pemerintah Desa DWT Jaya.
+            </p>
+        </div>
+
+        <div class="contact-box">
+
+            <div>
+
+                <h2>Kantor Desa DWT Jaya</h2>
+
+                <p>
+                    Jl. Desa DWT Jaya No. 01<br>
+                    Kecamatan Banjar Agung<br>
+                    Kabupaten Tulang Bawang<br>
+                    Provinsi Lampung
+                </p>
+
+            </div>
+
+            <div>
+
+                <h2>Informasi Kontak</h2>
+
+                <p>
+                    📞 0857-5845-3292
+                </p>
+
+                <p>
+                    ✉️ desadwtjaya@gmail.com
+                </p>
+
+                <p>
+                    🕐 Senin - Jumat, 08.00 - 15.00
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+            <h3>Desa DWT Jaya</h3>
+
+            <p>
+                Portal informasi dan pelayanan
+                digital Desa DWT Jaya.
+            </p>
+        </div>
+
+        <div>
+
+            <h3>Menu</h3>
+
+            <ul>
+                <li>Profil Desa</li>
+                <li>Potensi Desa</li>
+                <li>Berita Desa</li>
+                <li>Pelayanan</li>
+            </ul>
+
+        </div>
+
+        <div>
+
+            <h3>Kontak</h3>
+
+            <p>
+                Desa DWT Jaya<br>
+                Lampung<br>
+                Indonesia
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+
+        © 2026 Desa DWT Jaya. Semua Hak Dilindungi.
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* ==========================================
+   SISTEM HALAMAN DALAM SATU INDEX.HTML
+========================================== */
+
+function showPage(pageId) {
+
+    // Sembunyikan semua halaman
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    // Tampilkan halaman yang dipilih
+    const selectedPage = document.getElementById(pageId);
+
+    if (selectedPage) {
+        selectedPage.classList.add("active");
+    }
+
+    // Menu aktif
+    document.querySelectorAll(".menu a").forEach(link => {
+        link.classList.remove("active");
+
+        if (link.dataset.page === pageId) {
+            link.classList.add("active");
+        }
+    });
+
+    // Tutup menu HP
+    document.getElementById("menu").classList.remove("show");
+
+    // Kembali ke atas
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* ==========================================
+   KLIK MENU
+========================================== */
+
+document.querySelectorAll("[data-page]").forEach(link => {
+
+    link.addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+        const page = this.dataset.page;
+
+        showPage(page);
+
+        history.pushState(
+            null,
+            "",
+            "#" + page
+        );
+
+    });
+
+});
+
+
+/* ==========================================
+   BUKA HALAMAN BERDASARKAN URL
+========================================== */
+
+function loadFromURL() {
+
+    const page = window.location.hash.replace("#", "");
+
+    if (page && document.getElementById(page)) {
+
+        showPage(page);
+
+    } else {
+
+        showPage("beranda");
+
+    }
+
+}
+
+loadFromURL();
+
+
+/* ==========================================
+   TOMBOL BACK / FORWARD BROWSER
+========================================== */
+
+window.addEventListener("popstate", function() {
+
+    loadFromURL();
+
+});
+
+
+/* ==========================================
+   MENU MOBILE
+========================================== */
+
+function toggleMenu() {
+
+    document
+        .getElementById("menu")
+        .classList
+        .toggle("show");
+
+}
+
+</script>
+
+</body>
+</html>
